@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using ActiveStateMachine;
 
 namespace ApplicationServices
@@ -36,14 +37,21 @@ namespace ApplicationServices
                 var eventInfo = evt.GetType().GetEvent(eventName);
                 var methodInfo = sink.GetType().GetMethod(handlerMethodName);
                 var handler = Delegate.CreateDelegate(eventInfo.EventHandlerType, sink, methodInfo);
-                eventInfo.AddEventHandler(evt,handler);
+                eventInfo.AddEventHandler(evt, handler);
                 return true;
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                
+                var message = $"Exception while subscribing to handler. Event {eventName} - Handler - {handlerMethodName} - Exception - {exception}";
+                RaiseEventManagerEvent("EventManagerSystemEvent",message,StateMachineEventType.System);
                 throw;
             }
+        }
+
+        private void RaiseEventManagerEvent(string eventName, string eventInfo, StateMachineEventType eventType)
+        {
+            var newArgs = new StateMachineEventArgs(eventName, eventInfo, eventType, "Event Manager");
+            EventManagerEvent?.Invoke(this, newArgs);
         }
 
     }
