@@ -14,16 +14,9 @@ namespace ApplicationServices
 
         public void LogEventHandler(object sender, StateMachineEventArgs args)
         {
-            if (args.EventType != StateMachineEventType.Notification)
-            {
-                Debug.Print($"{args.TimeStamp} SystemEvent: {args.EventName} - Info: {args.EventInfo} - StateMachineArgumentType:{args.EventType} - Source {args.Source} - Target :{args.Target}");
-            }
-            else
-            {
-                Debug.Print($"{args.TimeStamp} Notification: {args.EventName} - Info: {args.EventInfo} - StateMachineArgumentType:{args.EventType} - Source {args.Source} - Target :{args.Target}");
-
-            }
+            Debug.Print(args.EventType != StateMachineEventType.Notification
+                ? $"{args.TimeStamp} SystemEvent: {args.EventName} - Info: {args.EventInfo} - StateMachineArgumentType:{args.EventType} - Source {args.Source} - Target :{args.Target}"
+                : $"{args.TimeStamp} Notification: {args.EventName} - Info: {args.EventInfo} - StateMachineArgumentType:{args.EventType} - Source {args.Source} - Target :{args.Target}");
         }
-
     }
 }
