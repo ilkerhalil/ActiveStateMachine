@@ -20,10 +20,27 @@ namespace TelephoneStateMachine
         {
             RaiseDeviceEvent("PhoneLine", "OffInternal");
         }
-        public void ActionBellActive()
+
+        public void ActionLineActive()
         {
             RaiseDeviceEvent("PhoneLine", "ActiveInternal");
         }
+
+        public void ActionViewPhoneRings()
+        {
+            RaiseTelephoneUiEvent("ViewPhoneRings");
+        }
+        public void ActionViewPhoneIdle()
+        {
+            RaiseTelephoneUiEvent("ViewPhoneIdle");
+            System.Media.SystemSounds.Beep.Play();
+        }
+        public void ActionViewTalking()
+        {
+            RaiseTelephoneUiEvent("ViewTalking");
+        }
+
+
 
         public void RaiseTelephoneUiEvent(string command)
         {
@@ -36,5 +53,7 @@ namespace TelephoneStateMachine
             var telArgs = new StateMachineEventArgs(command, "Device Command", StateMachineEventType.Command, "State machine action", target);
             TelephoneUiEvent?.Invoke(this, telArgs);
         }
+
+        
     }
 }

@@ -15,7 +15,7 @@ namespace ActiveStateMachine
         public bool IsDefaultState { get; private set; }
 
 
-        public State(string stateName, Dictionary<string, Transition> stateTansitionList, List<StateMachineAction> entryActions, List<StateMachineAction> exitActions)
+        public State(string stateName, Dictionary<string, Transition> stateTansitionList, List<StateMachineAction> entryActions, List<StateMachineAction> exitActions,bool defaultState=false)
         {
             StateName = stateName;
             StateTansitionList = stateTansitionList;
