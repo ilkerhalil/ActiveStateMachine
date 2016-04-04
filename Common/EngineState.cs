@@ -1,4 +1,4 @@
-﻿namespace ActiveStateMachine
+﻿namespace Common
 {
     public enum EngineState
     {

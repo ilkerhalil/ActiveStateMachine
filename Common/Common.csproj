@@ -43,6 +43,7 @@
     <Compile Include="EngineState.cs" />
     <Compile Include="IDeviceConfiguration.cs" />
     <Compile Include="IUserInterface.cs" />
+    <Compile Include="IViewState.cs" />
     <Compile Include="IViewStateConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateMachineEventArgs.cs" />

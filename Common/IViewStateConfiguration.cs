@@ -8,6 +8,6 @@ namespace Common
 
         string[] ViewStateList { get; set; }
 
-        string DefaultViewState { get; set; }
+        string DefaultViewState { get;  }
     }
 }

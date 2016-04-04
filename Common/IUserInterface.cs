@@ -2,6 +2,6 @@
 {
     public interface IUserInterface
     {
-        void LoadViewState(string ViewState);
+        void LoadViewState(string viewState);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using ActiveStateMachine;
+using Common;
 
 namespace TelephoneStateMachine
 {
@@ -38,6 +39,11 @@ namespace TelephoneStateMachine
         public void ActionViewTalking()
         {
             RaiseTelephoneUiEvent("ViewTalking");
+        }
+
+        public void ActionErrorPhoneRings()
+        {
+            RaiseTelephoneUiEvent("ViewErrorPhoneRings");
         }
 
 

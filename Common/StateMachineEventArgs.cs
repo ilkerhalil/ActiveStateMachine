@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ActiveStateMachine
+namespace Common
 {
     public class StateMachineEventArgs
     {
